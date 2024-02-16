@@ -1,5 +1,6 @@
 package gg.flyte.smp.command
 
+import gg.flyte.twilight.scheduler.async
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
 import org.bukkit.Location
@@ -13,21 +14,23 @@ class RTPCommand {
     @Command("rtp")
     @Cooldown(value=2, unit=TimeUnit.MINUTES)
     fun rtpCommand(sender: Player) {
-        var foundSafe = false
-        val random = Random.Default
+        async {
+            var foundSafe = false
+            val random = Random.Default
 
-        sender.sendMessage(Component.text("Finding you a safe location...").color(NamedTextColor.GREEN))
+            sender.sendMessage(Component.text("Finding you a safe location...").color(NamedTextColor.GREEN))
 
-        while(!foundSafe) {
-            val x = random.nextInt(1024)
-            val z = random.nextInt(1024)
+            while(!foundSafe) {
+                val x = random.nextInt(1024)
+                val z = random.nextInt(1024)
 
-            val highestBlock = sender.world.getHighestBlockAt(x, z)
+                val highestBlock = sender.world.getHighestBlockAt(x, z)
 
-            if(!highestBlock.isEmpty && highestBlock.isSolid) {
-                sender.teleport(Location(sender.world, x.toDouble(), highestBlock.y.toDouble(), z.toDouble()))
-                sender.sendMessage(Component.text("Teleported you to X: $x, Z: $z").color(NamedTextColor.GREEN))
-                foundSafe = true
+                if(!highestBlock.isEmpty && highestBlock.isSolid) {
+                    sender.teleportAsync(Location(sender.world, x.toDouble(), highestBlock.y.toDouble() + 1, z.toDouble()))
+                    sender.sendMessage(Component.text("Teleported you to X: $x, Z: $z").color(NamedTextColor.GREEN))
+                    foundSafe = true
+                }
             }
         }
     }
