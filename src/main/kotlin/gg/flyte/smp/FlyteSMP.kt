@@ -1,7 +1,8 @@
 package gg.flyte.smp
 
+import gg.flyte.smp.command.NVCommand
 import gg.flyte.smp.command.RTPCommand
-import gg.flyte.smp.listener.JoinListener
+import gg.flyte.smp.listener.ConnectListener
 import gg.flyte.twilight.Twilight
 import gg.flyte.twilight.twilight
 import io.papermc.lib.PaperLib
@@ -19,11 +20,16 @@ class FlyteSMP : JavaPlugin() {
 
         BukkitCommandHandler.create(this).apply {
             enableAdventure()
-            register(RTPCommand())
+
+            register(
+                RTPCommand(),
+                NVCommand()
+            )
+
             registerBrigadier()
         }
 
-        JoinListener()
+        ConnectListener()
 
         PaperLib.suggestPaper(this)
     }
