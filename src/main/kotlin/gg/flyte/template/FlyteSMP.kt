@@ -1,6 +1,6 @@
 package gg.flyte.template
 
-import gg.flyte.template.command.PingCommand
+import gg.flyte.template.command.RTPCommand
 import gg.flyte.template.listener.JoinListener
 import gg.flyte.twilight.Twilight
 import gg.flyte.twilight.twilight
@@ -19,7 +19,7 @@ class FlyteSMP : JavaPlugin() {
 
         BukkitCommandHandler.create(this).apply {
             enableAdventure()
-            register(PingCommand())
+            register(RTPCommand())
             registerBrigadier()
         }
 
