@@ -1,7 +1,7 @@
-name: Paper-Kotlin-Template
-version: 1.0.0
-main: gg.flyte.template.PluginTemplate
+name: Flyte-SMP
+version: 0.0.1
+main: gg.flyte.smp.FlyteSMP
 api-version: '1.20'
 authors: [ The Flyte Team ]
-description: Paper Plugin Template written in Kotlin.
+description: Plugin for the private smp for Flyte SMP
 website: https://flyte.gg

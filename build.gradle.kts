@@ -16,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    paperweight.paperDevBundle("1.20.2-R0.1-SNAPSHOT")
+    paperweight.paperDevBundle("1.20.4-R0.1-SNAPSHOT")
 
     implementation(libs.twilight)
     implementation(libs.paperlib)
@@ -28,11 +28,10 @@ dependencies {
 
 tasks {
     build { dependsOn(shadowJar) }
-    runServer { minecraftVersion("1.20.2") }
+    runServer { minecraftVersion("1.20.4") }
     compileKotlin { kotlinOptions.jvmTarget = "17" }
 
     shadowJar {
-        relocate("kotlin", "gg.flyte.kotlin")
         relocate("io.papermc.lib", "gg.flyte.paperlib")
         relocate("org.jetbrains.annotations", "gg.flyte.jetbrains.annotations")
         relocate("org.intellij.lang.annotations", "gg.flyte.intellij.lang.annotations")
