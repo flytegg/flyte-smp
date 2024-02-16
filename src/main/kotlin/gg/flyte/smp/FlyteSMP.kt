@@ -1,7 +1,7 @@
-package gg.flyte.template
+package gg.flyte.smp
 
-import gg.flyte.template.command.RTPCommand
-import gg.flyte.template.listener.JoinListener
+import gg.flyte.smp.command.RTPCommand
+import gg.flyte.smp.listener.JoinListener
 import gg.flyte.twilight.Twilight
 import gg.flyte.twilight.twilight
 import io.papermc.lib.PaperLib

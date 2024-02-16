@@ -1,15 +1,12 @@
-package gg.flyte.template.listener
+package gg.flyte.smp.listener
 
 import gg.flyte.twilight.event.event
 import gg.flyte.twilight.scheduler.delay
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
-import org.bukkit.Bukkit
 import org.bukkit.Location
-import org.bukkit.event.EventPriority
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerJoinEvent
-import org.bukkit.event.player.PlayerQuitEvent
 import kotlin.random.Random
 
 class JoinListener : Listener {

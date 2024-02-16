@@ -1,4 +1,4 @@
-package gg.flyte.template.command
+package gg.flyte.smp.command
 
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.format.NamedTextColor
